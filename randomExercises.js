@@ -24,16 +24,20 @@ function monthDays(month) {
 
 // Following second
 function followingSecond(timeString) {
+	// 1. Split into an array ['11h', '19m', '27s']
 	let splitContent = timeString.match(/.{1,3}/g)
+
+	// 2. Remove 'h, m, s' from each array item ['11', '19', '27']
 	let changeToNum = splitContent.map(function(num) {
 		return num.substring(0, 2)
 	})
+
+	// 3. Change each array item to a number [11, 19, 27]
 	let numberType = changeToNum.map(function(num) {
 		return Number(num)
 	})
-	console.log(numberType)
-  
-  //
+
+	// 4. Check array number and return the time 1s later
 	if (numberType[2] === 59) {
 		if (numberType[1] === 59) {
 			if (numberType[0] === 23) {
@@ -49,5 +53,18 @@ function followingSecond(timeString) {
 	}
 }
 
+// Carousel
+function carousel(numberOfTurns) {
+	for (let i = 1; i <= numberOfTurns; i++) {
+		console.log(`We are on turn number: ${i}`)
+	}
+}
 
+function carousel(numberOfTurns) {
+	let count = 1
+	while (count <= numberOfTurns) {
+		console.log(`We are on turn number: ${count}`)
+		count++
+	}
+}
 
