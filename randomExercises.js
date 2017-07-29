@@ -68,3 +68,16 @@ function carousel(numberOfTurns) {
 	}
 }
 
+
+// Number Parity
+function parityNum(num) {
+	for (let i = 0; i <= num; i++) {
+		if (i === 0) {
+			console.log('0 is neither odd nor even')
+		} else if (i % 2 === 0) {
+			console.log(`${i} is even`)
+		} else {
+			console.log(`${i} is odd`)
+		}
+	}
+}
