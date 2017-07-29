@@ -21,3 +21,25 @@ function monthDays(month) {
 		}
 	}
 }
+
+// Following second
+function followingSecond(timeString) {
+	let splitContent = timeString.match(/.{1,3}/g)
+	let changeToNum = splitContent.map(function(num) {
+		return num.substring(0, 2)
+	})
+	let numberType = changeToNum.map(function(num) {
+		return Number(num)
+	})
+	console.log(numberType)
+
+	if (numberType[2] === 59) {
+		if (numberType[1] === 59) {
+			if (numberType[0] === 23) {
+				return '24h00m00s'
+			} else {
+				return `${numberType[0] + 1}h00m00s`
+			}
+		}
+	}
+}
