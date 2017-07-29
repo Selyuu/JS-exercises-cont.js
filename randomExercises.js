@@ -32,14 +32,22 @@ function followingSecond(timeString) {
 		return Number(num)
 	})
 	console.log(numberType)
-
+  
+  //
 	if (numberType[2] === 59) {
 		if (numberType[1] === 59) {
 			if (numberType[0] === 23) {
-				return '24h00m00s'
+				return '0h0m0s'
 			} else {
-				return `${numberType[0] + 1}h00m00s`
+				return `${numberType[0] + 1}h0m0s`
 			}
+		} else {
+			return `${numberType[0]}h${numberType[1] + 1}m0s`
 		}
+	} else {
+		return `${numberType[0]}h${numberType[1]}m${numberType[2] + 1}s`
 	}
 }
+
+
+
