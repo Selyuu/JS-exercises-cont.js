@@ -119,4 +119,36 @@ function yesNorNo() {
 	return result
 }
 
+// Say hello to the user
+function sayHello(firstName, lastName) {
+  const message = `Hello, ${firstName} ${lastName}!`;
+  return message;
+}
+
+const personName = () => {
+	const first = prompt('What is your first name?')
+	const last = prompt('What is your last name?')
+	return sayHello(first, last)
+}
+
+// Square the given number x
+function square1(x) {
+  return x * x
+}
+
+// Square the given number x
+const square2 = x => x * x
+
+
+
+
+
+
+
+
+
+
+
+
+
 
