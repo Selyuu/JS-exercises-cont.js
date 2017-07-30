@@ -89,3 +89,23 @@ function checkInput() {
 	}
 	return num
 }
+
+// Multiplication Table
+function returnMulti() {
+	let num 
+	let result = []
+	if (num === undefined) {
+		num = prompt('Give me a number between 2 and 9')
+		while (num > 10) {
+			num = prompt('Give me a number between 2 and 9')
+		}
+	}
+	for (let i = 1; i <= 10; i++) {
+		result.push(num * i)
+	}
+	return result
+}
+
+
+
+
