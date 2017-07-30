@@ -139,11 +139,43 @@ function square1(x) {
 // Square the given number x
 const square2 = x => x * x
 
+// Square every number
+let squared = []
+const squareAll = x => {
+	for (let i = 0; i < 11; i++) {
+		squared.push(i * i)
+	}
+}
 
+// Minimum Number
+const minimumNum = (numOne, numTwo) => {
+	if (numOne > numTwo) {
+		return numTwo
+	}
+	return numOne
+}
 
+// Calculator Program
 
+const calc = (numOne, operator, numTwo) => {
+	if (Number.isInteger(numOne) && Number.isInteger(numTwo))
+	switch (operator) {
+		case '+':
+			return numOne + numTwo
+		case '-':
+			return numOne - numTwo
+		case '*':
+			return numOne * numTwo
+		case '/':
+			return numOne / numTwo
+	}
+}
 
+// Circumference Circle
+const circleCircumference = diameter => Math.PI * diameter
 
+// Area Circle
+const circleArea = radius => Math.PI * (radius ** 2)
 
 
 
