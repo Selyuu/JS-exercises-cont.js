@@ -68,7 +68,6 @@ function carousel(numberOfTurns) {
 	}
 }
 
-
 // Number Parity
 function parityNum(num) {
 	for (let i = 0; i <= num; i++) {
@@ -80,4 +79,13 @@ function parityNum(num) {
 			console.log(`${i} is odd`)
 		}
 	}
+}
+
+// Input Validation
+function checkInput() {
+	let num = 101
+	while (num >= 100) {
+		num = prompt('Give me a number')
+	}
+	return num
 }
