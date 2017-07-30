@@ -106,6 +106,17 @@ function returnMulti() {
 	return result
 }
 
-
+// Neither Y or N
+function yesNorNo() {
+	let yesNoCheck = true
+	let result = ''
+	while (yesNoCheck) {
+		result = prompt('Please provide a string')
+		if ((result === 'yes') || (result === 'no')) {
+			yesNoCheck = false
+		}
+	}
+	return result
+}
 
 
