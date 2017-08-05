@@ -197,14 +197,21 @@ const totalSum = arr => {
 	return result
 }
 
-totalSum(arrays)
-
 var arrays = [[1, 4], [11], [3, 5, 7]]
-var sums = arrays.reduce((sum, val, index) => {
-	return sum + val[index]
+var sums = arrays.reduce((acc, val, i) => {
+	if (arrays[i].length > 1) {
+		for (var j = 0; j < arrays[i].length; j++) {
+			acc += arrays[i][j]
+		}
+	} else {
+		acc += val[i]
+	}
+	return acc
 }, 0)
 
 console.log(sums)
+
+
 
 
 
