@@ -156,9 +156,11 @@ const minimumNum = (numOne, numTwo) => {
 }
 
 // Calculator Program
+ calc(1, '+', two)
 
 const calc = (numOne, operator, numTwo) => {
 	if (Number.isInteger(numOne) && Number.isInteger(numTwo))
+
 	switch (operator) {
 		case '+':
 			return numOne + numTwo
@@ -168,6 +170,8 @@ const calc = (numOne, operator, numTwo) => {
 			return numOne * numTwo
 		case '/':
 			return numOne / numTwo
+		default:
+			return 'No operator specified'
 	}
 }
 
@@ -177,8 +181,31 @@ const circleCircumference = diameter => Math.PI * diameter
 // Area Circle
 const circleArea = radius => Math.PI * (radius ** 2)
 
+// Array Sum (filter/map/reduce)
+var arrays = [[1, 4], [11], [3, 5, 7]]
 
+const totalSum = arr => {
+	var result = 0
 
+	for (var i = 0; i < arr.length; i++) {
+		if (typeof arr[i] === 'object') {
+			result += totalSum(arr[i])
+		} else {
+			result += arr[i]
+		}
+	}
+	return result
+}
+
+totalSum(arrays)
+
+var arrays = [[1, 4], [11], [3, 5, 7]]
+var sums = arrays.reduce((sum, val) => {
+	if (typeof val === 'object') {
+		
+	}
+}, 0)
+console.log(sums)
 
 
 
