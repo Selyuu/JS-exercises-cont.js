@@ -199,12 +199,13 @@ const totalSum = arr => {
 
 var arrays = [[1, 4], [11], [3, 5, 7]]
 var sums = arrays.reduce((acc, val, i) => {
+	debugger
 	if (arrays[i].length > 1) {
 		for (var j = 0; j < arrays[i].length; j++) {
 			acc += arrays[i][j]
 		}
 	} else {
-		acc += val[i]
+		acc += val[0]
 	}
 	return acc
 }, 0)
