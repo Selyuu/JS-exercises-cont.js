@@ -200,11 +200,10 @@ const totalSum = arr => {
 totalSum(arrays)
 
 var arrays = [[1, 4], [11], [3, 5, 7]]
-var sums = arrays.reduce((sum, val) => {
-	if (typeof val === 'object') {
-		
-	}
+var sums = arrays.reduce((sum, val, index) => {
+	return sum + val[index]
 }, 0)
+
 console.log(sums)
 
 
