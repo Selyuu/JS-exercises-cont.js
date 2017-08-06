@@ -248,23 +248,7 @@ var averageGrade = students => students.map(arr => {
 	return flatten(arr).reduce((acc, val) => acc + val, 0)
 })
 
-// Compute female student results
-const femaleStudentsResults = []
-for (const student of students) {
-  if (student.sex === "f") {
-    let gradesSum = 0;
-    for (const grade of student.grades) {
-      gradesSum += grade;
-    }
-    const averageGrade = gradesSum / student.grades.length;
-    femaleStudentsResults.push({
-      name: student.name,
-      avgGrade: averageGrade
-    })
-  }
-}
 
-console.log(femaleStudentsResults)
 
 
 
