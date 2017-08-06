@@ -244,9 +244,10 @@ var flatten = arr => {
 		return flat.concat(Array.isArray(arr) ? flatten(arr) : arr)
 	},[])
 }
-var averageGrade = students => students.map(arr => {
-	return flatten(arr).reduce((acc, val) => acc + val, 0)
+var sumGrade = students => students.map(arr => {
+	return flatten(arr).reduce((acc, val) => acc + val, 0) / arr.length
 })
+
 
 
 
