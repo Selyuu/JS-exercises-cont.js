@@ -199,7 +199,6 @@ const totalSum = arr => {
 
 var arrays = [[1, 4], [11], [3, 5, 7]]
 var sums = arrays.reduce((acc, val, i) => {
-	debugger
 	if (arrays[i].length > 1) {
 		for (var j = 0; j < arrays[i].length; j++) {
 			acc += arrays[i][j]
@@ -238,11 +237,19 @@ const students = [
 ]
 
 // Filter female students
-
-
+var femaleStudents = students => students.filter(student => student.sex === 'f')
+var studentGrades = students => students.map(student => student.grades)
+var flatten = arr => {
+	return arr.reduce((flat, arr) => {
+		return flat.concat(Array.isArray(arr) ? flatten(arr) : arr)
+	},[])
+}
+var averageGrade = students => students.map(arr => {
+	return flatten(arr).reduce((acc, val) => acc + val, 0)
+})
 
 // Compute female student results
-const femaleStudentsResults = [];
+const femaleStudentsResults = []
 for (const student of students) {
   if (student.sex === "f") {
     let gradesSum = 0;
