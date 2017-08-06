@@ -238,6 +238,7 @@ const students = [
 
 // Filter female students
 var femaleStudents = students => students.filter(student => student.sex === 'f')
+var femaleStudentsName = students => students.map(student => student.name)
 var studentGrades = students => students.map(student => student.grades)
 var flatten = arr => {
 	return arr.reduce((flat, arr) => {
@@ -248,8 +249,23 @@ var sumGrade = students => students.map(arr => {
 	return flatten(arr).reduce((acc, val) => acc + val, 0) / arr.length
 })
 
+// Female Student Objects
+class Student {
+	constructor(avgGrade, name) {
+		this.avgGrade = avgGrade
+		this.name = name
+	}
+}
+
+var femalesName = femaleStudentsName(femaleStudents(students))
+var averageSum = sumGrade(studentGrades(femaleStudents(students)))
 
 
+var anna = new Student(averageSum[0], femalesName[0])
+var martha = new Student(averageSum[1], femalesName[1])
+
+var femaleArr = []
+femaleArr.push(anna, martha)
 
 
 
