@@ -267,8 +267,18 @@ var martha = new Student(averageSum[1], femalesName[1])
 var femaleArr = []
 femaleArr.push(anna, martha)
 
-
-
+// Show child node
+const showChild = (parentNode, childNodeIndex) => {
+	if (childNodeIndex > parentNode.childNodes.length) {
+		console.error('Incorrect Index')
+	} else if (childNodeIndex < 0) {
+		console.error('Incorrect Index')
+	} else if (parentNode.nodeType !== document.ELEMENT_NODE) {
+		console.error('Incorrect Node Type')
+	} else {
+		console.log(parentNode.childNodes[childNodeIndex])
+	}
+}
 
 
 
