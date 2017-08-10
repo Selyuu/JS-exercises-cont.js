@@ -280,6 +280,8 @@ const showChild = (parentNode, childNodeIndex) => {
 	}
 }
 
+// Count elements
+const countElements = selector => querySelectorAll(selector).length
 
 
 
