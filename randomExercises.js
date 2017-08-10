@@ -319,7 +319,16 @@ const addPara = (paragraph, id) => {
 const newspapers = ["https://www.nytimes.com", "https://www.washingtonpost.com", "http://www.economist.com"];
 
 const showPapers = arrayOfNewspapers => {
-	
+	arrayOfNewspapers.forEach(newspaper => {
+		let newspaperElement = document.createElement('a')
+		newspaperElement.innerHTML = `<a href=${newspaper}>${newspaper}</a><br />`
+		document.getElementById('content').appendChild(newspaperElement)
+	})
 }
+
+
+
+
+
 
 
