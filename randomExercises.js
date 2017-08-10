@@ -305,7 +305,21 @@ const has = (id, someClass) => {
 	}
 }
 
+// Adding a paragraph
+newPara = `<p>Here is a more complete <a href="https://en.wikipedia.org/wiki/List_of_programming_languages">list</a> of languages</p>`
 
+const addPara = (paragraph, id) => {
+	let paragraphElement = document.createElement('p')
+	paragraphElement.id = id
+	paragraphElement.innerHTML = paragraph
+	document.getElementById('content').appendChild(paragraphElement)
+}
 
+// Newspaper reel
+const newspapers = ["https://www.nytimes.com", "https://www.washingtonpost.com", "http://www.economist.com"];
+
+const showPapers = arrayOfNewspapers => {
+	
+}
 
 
