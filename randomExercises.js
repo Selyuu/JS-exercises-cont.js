@@ -283,5 +283,29 @@ const showChild = (parentNode, childNodeIndex) => {
 // Count elements
 const countElements = selector => querySelectorAll(selector).length
 
+// Link Information
+const linkInfo = () => {
+	let links = document.querySelectorAll('a')
+	console.log(links.length)
+	console.log(links[0].getAttribute('href'))	
+	console.log(links[links.length - 1].getAttribute('href'))
+}
+
+// Handling classes
+const has = (id, someClass) => {
+	if (!document.getElementById(id)) {
+		console.error(`No Element has id '${id}'`)
+	} else {
+		let idCheck = document.getElementById(id).classList.contains(someClass)
+		if (idCheck) {
+			return true
+		} else {
+			return false
+		}
+	}
+}
+
+
+
 
 
