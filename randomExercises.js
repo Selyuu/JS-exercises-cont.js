@@ -316,7 +316,7 @@ const addPara = (paragraph, id) => {
 }
 
 // Newspaper reel
-const newspapers = ["https://www.nytimes.com", "https://www.washingtonpost.com", "http://www.economist.com"];
+const newspapers = ["https://www.nytimes.com", "https://www.washingtonpost.com", "http://www.economist.com"]
 
 const showPapers = arrayOfNewspapers => {
 	arrayOfNewspapers.forEach(newspaper => {
@@ -326,6 +326,25 @@ const showPapers = arrayOfNewspapers => {
 	})
 }
 
+//Mini-dictionary
+const words = [{
+  term: "Procrastination",
+  definition: "Avoidance of doing a task that needs to be accomplished"
+}, {
+  term: "Tautology",
+  definition: "logical argument constructed in such a way that it is logically irrefutable"
+}, {
+  term: "Oxymoron",
+  definition: "figure of speech that juxtaposes elements that appear to be contradictory"
+}]
+
+const dictionary = descriptionList => {
+	descriptionList.forEach(item => {
+		let descriptiveElement = document.createElement('dl')
+		descriptiveElement.innerHTML = `<dt><strong>${item.term}</strong></dt><dd>${item.definition}</dd>`
+  	document.getElementById('content').appendChild(descriptiveElement)
+	})
+}
 
 
 
