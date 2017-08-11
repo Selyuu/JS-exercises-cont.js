@@ -345,11 +345,3 @@ const dictionary = descriptionList => {
   	document.getElementById('content').appendChild(descriptiveElement)
 	})
 }
-
-
-
-
-
-
-
-
