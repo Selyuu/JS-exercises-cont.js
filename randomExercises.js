@@ -345,3 +345,26 @@ const dictionary = descriptionList => {
   	document.getElementById('content').appendChild(descriptiveElement)
 	})
 }
+
+// Color text/background change
+const newColorInputs = () => {
+	let newTextColor = prompt(`Provide text color`)
+	let newBackgroundColor = prompt(`Provide background color`)
+	return {
+		textColor: newTextColor,
+		backgroundColor: newBackgroundColor
+	}
+}
+
+const changeColorDivs = (func) => {
+	colorObject = func()
+	console.log(colorObject)
+	let divElements = document.querySelectorAll('div')
+	console.log(divElements)
+	divElements.forEach(item => {
+		item.style.color = colorObject.textColor
+		item.style.backgroundColor = colorObject.backgroundColor
+	})
+}
+
+changeColorDivs(newColorInputs)
