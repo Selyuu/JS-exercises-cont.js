@@ -368,3 +368,11 @@ const changeColorDivs = (func) => {
 }
 
 changeColorDivs(newColorInputs)
+
+// Provide element sizes
+const elementSizes = () => {
+	let infosDiv = document.querySelector('.infos')
+	// find height of id 'content'
+	// find width of id 'content'
+	// add textContent of height/width to 'infos' id
+}
