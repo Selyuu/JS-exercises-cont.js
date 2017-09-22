@@ -377,3 +377,23 @@ const elementSizes = () => {
 	// find width of id 'content'
 	// add textContent of height/width to 'infos' id
 }
+
+const hashTagTriangle = () => {
+	let e = 0
+	let a = ''
+	while (e < 7) {
+		a += '#'
+		console.log(a)
+		e++
+	}
+}
+
+const chessBoardTile = () => {
+	let e = 0
+	while (e < 8) {
+		e % 2 === 0 
+		? console.log(' # # # #\n')
+		: console.log('# # # # \n')
+		e++
+	}
+}
