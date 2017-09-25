@@ -425,7 +425,7 @@ function isEven(number) {
 // bean counting
 function countBs(string) {
 	//split string
-	let splitStr = string.split();
+	let splitStr = string.split('');
 	//loop over split array
 	let result = splitStr.filter(letter => letter === 'B');
 	return result.length;
@@ -433,7 +433,7 @@ function countBs(string) {
 
 function countChar(string, character) {
 	//split string
-	let splitStr = string.split();
+	let splitStr = string.split('');
 	//loop over split array
 	let result = splitStr.filter(letter => letter === character);
 	return result.length;
