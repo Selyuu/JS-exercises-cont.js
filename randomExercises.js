@@ -397,3 +397,12 @@ const chessBoardTile = () => {
 		e++
 	}
 }
+
+const min = (numOne, numTwo) => numOne > numTwo ? numTwo : numOne
+
+if (numOne > numTwo) {
+	return numTwo;
+} else {
+	return numOne;
+}
+
