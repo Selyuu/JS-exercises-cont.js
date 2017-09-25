@@ -398,6 +398,7 @@ const chessBoardTile = () => {
 	}
 }
 
+// return Min
 const min = (numOne, numTwo) => numOne > numTwo ? numTwo : numOne
 
 if (numOne > numTwo) {
@@ -406,3 +407,17 @@ if (numOne > numTwo) {
 	return numOne;
 }
 
+// is Even recursion
+function isEven(number) {
+	if (number >= 0) {
+		if (number === 0) {
+			return true;
+		} else if (number === 1) {
+			return false;
+		} else {
+			return isEven(number - 2);
+		}
+	} else {
+		return 'Number is less than 0';
+	}
+}
