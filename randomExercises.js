@@ -433,7 +433,8 @@ function countBs(string) {
 
 function countChar(string, character) {
 	//split string
+	let splitStr = string.split();
 	//loop over split array
-	//if character, add to count
-	//return count
+	let result = splitStr.filter(letter => letter === character);
+	return result.length;
 }
