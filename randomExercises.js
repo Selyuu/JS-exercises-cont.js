@@ -421,3 +421,19 @@ function isEven(number) {
 		return 'Number is less than 0';
 	}
 }
+
+// bean counting
+function countBs(string) {
+	//split string
+	let splitStr = string.split();
+	//loop over split array
+	let result = splitStr.filter(letter => letter === 'B');
+	return result.length;
+}
+
+function countChar(string, character) {
+	//split string
+	//loop over split array
+	//if character, add to count
+	//return count
+}
