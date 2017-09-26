@@ -438,3 +438,11 @@ function countChar(string, character) {
 	let result = splitStr.filter(letter => letter === character);
 	return result.length;
 }
+
+// Jacque's Log
+function addEntry(eventsArr, squirrelChange) {
+	journal.push({
+		events: eventsArr,
+		squirrel: squirrelChange
+	})
+}
