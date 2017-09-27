@@ -463,3 +463,21 @@ function sum(firstNum, secondNum) {
 	let result = range(firstNum, secondNum)
 	return result.reduce((acc, num) => acc + num, 0)
 }
+
+// range function with step parameter
+function range(firstNum, secondNum, step) {
+	let count = firstNum
+	let result = []
+	if (step) {
+		while (count <= secondNum) {
+			result.push(count)
+			count += step
+		}
+	} else {
+		while (count <= secondNum) {
+			result.push(count)
+			count++
+		}
+	}
+	return result
+}
