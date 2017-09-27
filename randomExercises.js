@@ -471,6 +471,11 @@ function range(firstNum, secondNum, step) {
 	if (step) {
 		while (count <= secondNum) {
 			result.push(count)
+			// if (step > 0) {
+			// 	count += step
+			// } else {
+			// 	count -= step
+			// }
 			count += step
 		}
 	} else {
