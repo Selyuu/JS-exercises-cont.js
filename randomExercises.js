@@ -457,3 +457,9 @@ function range(firstNum, secondNum) {
 	}
 	return result
 }
+
+// sum function
+function sum(firstNum, secondNum) {
+	let result = range(firstNum, secondNum)
+	return result.reduce((acc, num) => acc + num, 0)
+}
