@@ -469,20 +469,31 @@ function range(firstNum, secondNum, step) {
 	let count = firstNum
 	let result = []
 	if (step) {
-		while (count <= secondNum) {
-			result.push(count)
-			// if (step > 0) {
-			// 	count += step
-			// } else {
-			// 	count -= step
-			// }
-			count += step
+		if (step > 0) {
+			whileNumPos(count, secondNum, result, step)
+		} else {
+			whileNumNeg(count, secondNum, result, step)
 		}
 	} else {
-		while (count <= secondNum) {
-			result.push(count)
+		whileNumPos(count, secondNum, result)
+	}
+	return result
+}
+
+function whileNumPos(count, secondNum, result, step) {
+	while (count <= secondNum) {
+		result.push(count)
+		if (step) {
+			count += step
+		} else {
 			count++
 		}
 	}
-	return result
+}
+
+function whileNumNeg(count, secondNum, result, step) {
+	while (count >= secondNum) {
+		result.push(count)
+		count += step
+	}
 }
