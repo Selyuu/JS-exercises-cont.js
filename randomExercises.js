@@ -446,3 +446,14 @@ function addEntry(eventsArr, squirrelChange) {
 		squirrel: squirrelChange
 	})
 }
+
+// range function
+function range(firstNum, secondNum) {
+	let count = firstNum
+	let result = []
+	while (count <= secondNum) {
+		result.push(count)
+		count++
+	}
+	return result
+}
