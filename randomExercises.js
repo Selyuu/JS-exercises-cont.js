@@ -497,3 +497,39 @@ function whileNumNeg(count, secondNum, result, step) {
 		count += step
 	}
 }
+
+// reverse array function
+function reverseArray(arr) {
+	let result = []
+	arr.map(item => result.unshift(item))
+	return result
+}
+
+// reverse array in place function
+function reverseArrayInPlace(arr) {
+	let holdItem
+	for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+		holdItem = arr[i] // 1
+		arr[i] = arr[arr.length - 1 - i] // 5
+		arr[arr.length - 1 - i] = holdItem
+	}
+	return arr
+}
+
+// array list function
+function arrayToList(arr) {
+	let list
+	for (let i = arr.length; i > 0; i--) {
+		list = {
+			value: arr[i - 1],
+			rest: list
+		}
+	}
+	return list
+}
+
+// list to array function
+function listToArray(obj) {
+	
+}
+
