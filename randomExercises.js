@@ -535,23 +535,6 @@ function listToArray(list) {
 		result.push(node.value)
 	}
 	return result
-}	let list
-	for (let i = arr.length; i > 0; i--) {
-		list = {
-			value: arr[i - 1],
-			rest: list
-		}
-	}
-	return list
-}
-
-// list to array function
-function listToArray(list) {
-	let result = []
-	for (let node = list; node; node = node.rest) {
-		result.push(node.value)
-	}
-	return result
 }
 
 // prepend list function
@@ -566,5 +549,16 @@ function prepend(element, list) {
 			value: element,
 			rest: prepend(list.value, list.rest)
 		}
+	}
+}
+
+// function nth
+function nth(list, number) {
+	if (!list) {
+		return undefined
+	} else if (number === 0) {
+		return list.value
+	} else {
+		return nth(list.rest, number - 1)
 	}
 }
