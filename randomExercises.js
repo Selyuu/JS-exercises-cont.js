@@ -554,4 +554,17 @@ function listToArray(list) {
 	return result
 }
 
-
+// prepend list function
+function prepend(element, list) {
+	if ((list === undefined) || (list === null)) {
+		return rest = {
+			value: element,
+			rest: list
+		}
+	} else {
+		return {
+			value: element,
+			rest: prepend(list.value, list.rest)
+		}
+	}
+}
