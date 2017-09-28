@@ -529,8 +529,29 @@ function arrayToList(arr) {
 }
 
 // list to array function
-function listToArray(obj) {
-	
+function listToArray(list) {
+	let result = []
+	for (let node = list; node; node = node.rest) {
+		result.push(node.value)
+	}
+	return result
+}	let list
+	for (let i = arr.length; i > 0; i--) {
+		list = {
+			value: arr[i - 1],
+			rest: list
+		}
+	}
+	return list
+}
+
+// list to array function
+function listToArray(list) {
+	let result = []
+	for (let node = list; node; node = node.rest) {
+		result.push(node.value)
+	}
+	return result
 }
 
 
