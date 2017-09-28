@@ -562,3 +562,27 @@ function nth(list, number) {
 		return nth(list.rest, number - 1)
 	}
 }
+
+// deepEqual function
+function deepEqual(itemOne, itemTwo) {
+	if (itemOne === itemTwo) return true
+
+	if (itemOne === null || typeof(itemOne) !== 'object' ||
+			itemTwo === null || typeof(itemTwo) !== 'object') {
+		return false
+	}
+
+	let propsInOne = 0, propsInTwo = 0
+
+	for (let prop in itemOne) {
+		propsInOne++
+	}
+
+	for (let prop in itemTwo) {
+		propsInTwo++
+		if (!(prop in itemOne) || !deepEqual(itemOne[prop], itemTwo[prop])) {
+			return false
+		}
+	}
+	return propsInOne === propsInTwo
+}
