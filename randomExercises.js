@@ -591,11 +591,23 @@ function deepEqual(itemOne, itemTwo) {
 function reduce(arrayList, combineFunc, startingValue) {
 	let current = startingValue
 	for (let i = 0; i < arrayList.length; i++) {
-		current = combineFunc(current, array[i])
+		current = combineFunc(current, arrayList[i])
 	}
 	return current
 }
 
-// arr.reduce(arrList, function(a, b) {
-//	return a + b
-//})
+function sum(numberOne, numberTwo) {
+	return numberOne + numberTwo
+}
+
+// average function
+function average(arr) {
+	function add(a, b) { return a + b }
+	return arr.reduce(add) / arr.length
+}
+
+// age/gender of each item
+function age(person) { return person.died - person.born }
+function male(person) { return person.sex === 'male' }
+function female(person) { return person.sex === 'female' }
+
