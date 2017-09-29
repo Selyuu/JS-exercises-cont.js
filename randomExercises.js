@@ -586,3 +586,16 @@ function deepEqual(itemOne, itemTwo) {
 	}
 	return propsInOne === propsInTwo
 }
+
+// reduce function
+function reduce(arrayList, combineFunc, startingValue) {
+	let current = startingValue
+	for (let i = 0; i < arrayList.length; i++) {
+		current = combineFunc(current, array[i])
+	}
+	return current
+}
+
+// arr.reduce(arrList, function(a, b) {
+//	return a + b
+//})
