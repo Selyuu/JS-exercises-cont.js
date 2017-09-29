@@ -656,16 +656,35 @@ function findMothers(arr) {
 	return [...result]
 }
 
+// create array of names from ancestry JSON
+function nameArray(arr) {
+	let result = arr.map(item => item.name)
+	return result
+}
+
 // Filter array to strings only
 function stringFilter(arr) {
 	let result = arr.filter(item => typeof(item) === 'string')
 	return result
 }
 
-// check if array item exists in ancestry.name array
+// check if mother array item exists in ancestry array
 function motherAncestryCheck(motherArr, ancestryArr) {
-	let result = motherArr.filter(item => item === ancestryLoop())
+	let result = motherArr.filter(item => ancestryArr.indexOf(item) >= 0)
 	return result
 }
 
 // find DOB of mothers array function
+function motherChildCheck(motherArr, ancestryArr) {
+	// loop over ancestry array
+	let result = ancestryArr.filter(item => motherArr.indexOf(item.mother) >= 0)
+	// if mother is found
+	// calculate age difference
+	result = result.map(item => item.born - valueOf(item.mother))
+}
+
+// Obtain mother's DOB
+function mothersDOB(motherName) {
+	let result = ancestry.filter(item => item.mother === mothersName)
+	return result.born
+}
