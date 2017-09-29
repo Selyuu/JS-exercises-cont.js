@@ -611,3 +611,61 @@ function age(person) { return person.died - person.born }
 function male(person) { return person.sex === 'male' }
 function female(person) { return person.sex === 'female' }
 
+// byName function
+let byName = {}
+ancestryArray.forEach(function(person) {
+	byName[person.name] = person
+})
+
+// reduce ancestors recursively
+function reduceAncestors(person, func, defaultVal) {
+	function valueFor(person) {
+		debugger
+		if (person === null) {
+			return defaultVal
+		} else {
+			func(person, valueFor(byName[person.mother],
+									 valueFor(byName[person.father])))
+		}
+		return valueFor(person)
+	}
+}
+
+// flattening array 
+let arrays = [[1, 2, 3], [4, 5], [6]]
+arrays.reduce(function(acc, curr) {
+	return acc.concat(curr)
+})
+
+// Mother Child difference
+
+function average(array) {
+  function plus(a, b) { return a + b }
+  return array.reduce(plus) / array.length
+}
+
+var byName = {}
+ancestry.forEach(function(person) {
+  byName[person.name] = person
+})
+
+// create mothers array function (remove duplicates)
+function findMothers(arr) {
+	let result = arr.map(item => item.mother)
+	result = new Set(result)
+	return [...result]
+}
+
+// Filter array to strings only
+function stringFilter(arr) {
+	let result = arr.filter(item => typeof(item) === 'string')
+	return result
+}
+
+// check if array item exists in ancestry.name array
+function motherAncestryCheck(motherArr, ancestryArr) {
+	let result = motherArr.filter(item => item === ancestryLoop())
+	return result
+}
+
+// find DOB of mothers array function
