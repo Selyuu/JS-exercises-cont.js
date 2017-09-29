@@ -637,34 +637,32 @@ arrays.reduce(function(acc, curr) {
 	return acc.concat(curr)
 })
 
-// Mother Child difference
+
+////////////////////////////////////
+// -- Mother Child difference -- //
+///////////////////////////////////
 
 function average(array) {
   function plus(a, b) { return a + b }
   return array.reduce(plus) / array.length
 }
 
-var byName = {}
-ancestry.forEach(function(person) {
-  byName[person.name] = person
-})
-
 // create mothers array function (remove duplicates)
 function findMothers(arr) {
 	let result = arr.map(item => item.mother)
 	result = new Set(result)
-	return [...result]
-}
-
-// create array of names from ancestry JSON
-function nameArray(arr) {
-	let result = arr.map(item => item.name)
-	return result
+	return stringFilter([...result])
 }
 
 // Filter array to strings only
 function stringFilter(arr) {
 	let result = arr.filter(item => typeof(item) === 'string')
+	return result
+}
+
+// create array of names from ancestry JSON
+function nameArray(arr) {
+	let result = arr.map(item => item.name)
 	return result
 }
 
@@ -680,7 +678,7 @@ function motherChildCheck(motherArr, ancestryArr) {
 	let result = ancestryArr.filter(item => motherArr.indexOf(item.mother) >= 0)
 	// if mother is found
 	// calculate age difference
-	result = result.map(item => item.born - valueOf(item.mother))
+	result = result.map(item => item.born - mothersDOB(item.mother))
 }
 
 // Obtain mother's DOB
