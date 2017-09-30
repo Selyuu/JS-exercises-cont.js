@@ -672,17 +672,84 @@ function motherAncestryCheck(motherArr, ancestryArr) {
 	return result
 }
 
-// find DOB of mothers array function
+// function to create an array of age differences between Child born/Mother age
 function motherChildCheck(motherArr, ancestryArr) {
 	// loop over ancestry array
-	let result = ancestryArr.filter(item => motherArr.indexOf(item.mother) >= 0)
+	let arr = ancestryArr.filter(item => motherArr.indexOf(item.mother) >= 0)
 	// if mother is found
 	// calculate age difference
-	result = result.map(item => item.born - mothersDOB(item.mother))
+	let result = arr.map(item => Number(item.born) - mothersDOB(ancestryArr, item.mother))
+	return average(result)
 }
 
 // Obtain mother's DOB
-function mothersDOB(motherName) {
-	let result = ancestry.filter(item => item.mother === mothersName)
-	return result.born
+function mothersDOB(arr, mothersName) {
+	let result = arr.filter(item => item.name === mothersName)
+									.map(item => item.born)
+	console.log(result)
+	return result
+}
+
+
+//////////////////////////////////////
+// -- Historical Life Expectancy -- //
+//////////////////////////////////////
+
+// Object of centuries
+let centuriesObj = {}
+
+// Calculate person's century
+function century(person) {
+	return Math.ceil(person.died / 100)
+}
+
+// Group persons by century
+function groupedCenturies(arr) {
+	arr.forEach(function(item) {
+		let numberCentury = century(item)
+		
+		if (numberCentury in centuriesObj) {
+			centuriesObj[numberCentury].push(item)
+		} else {
+			centuriesObj[numberCentury] = [item]
+		}
+	})
+}
+
+// Function to calculate average age per object
+function averageAge(obj) {
+	let result = []
+	for (key in obj) {
+		let item = obj[key]
+		let age = item.died - item.born
+		result.push(age)
+	}
+	let lengthOfArr = result.length
+	return result.reduce((acc, val) => acc + val) / lengthOfArr
+}
+
+// Iterate over each object and return average
+function averageObject(obj) {
+	for (key in obj) {
+		console.log(`${key}: ${averageAge(obj[key])}`)
+	}
+}
+
+
+///////////////////////////////
+// -- Every and then Some -- //
+///////////////////////////////
+
+// every function
+function every(arr, test) {
+	let result = arr.map(item => test(item))
+									.filter(item => item === false)
+	return result.length > 0 ? false : true
+}
+
+// some function
+function some(arr, test) {
+	let result = arr.map(item => test(item))
+									.filter(item => item === true)
+	return result.length > 0 ? true : false
 }
