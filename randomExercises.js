@@ -763,10 +763,16 @@ function Vector(x, y) {
 	this.y = y
 }
 
-Vector.prototype.plus = function(vectorOne, vectorTwo) {
-	
+Vector.prototype.plus = function(vector) {
+	return {
+		x: this.x + vector.x,
+		y: this.y + vector.y
+	}
 }
 
-Vector.prototype.minus = function(vectorOne, vectorTwo) {
-
+Vector.prototype.minus = function(vector) {
+	return {
+		x: this.x - vector.x,
+		y: this.y - vector.y
+	}
 }
