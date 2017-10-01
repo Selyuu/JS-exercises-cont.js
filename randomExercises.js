@@ -753,3 +753,20 @@ function some(arr, test) {
 									.filter(item => item === true)
 	return result.length > 0 ? true : false
 }
+
+/////////////////////////
+// -- A vector type -- //
+/////////////////////////
+
+function Vector(x, y) {
+	this.x = x
+	this.y = y
+}
+
+Vector.prototype.plus = function(vectorOne, vectorTwo) {
+	
+}
+
+Vector.prototype.minus = function(vectorOne, vectorTwo) {
+
+}
