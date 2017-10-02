@@ -758,11 +758,13 @@ function some(arr, test) {
 // -- A vector type -- //
 /////////////////////////
 
+// Constructor Vector Object
 function Vector(x, y) {
 	this.x = x
 	this.y = y
 }
 
+// Add method PLUS + MINUS to Vector prototype
 Vector.prototype.plus = function(vector) {
 	return {
 		x: this.x + vector.x,
@@ -775,4 +777,107 @@ Vector.prototype.minus = function(vector) {
 		x: this.x - vector.x,
 		y: this.y - vector.y
 	}
+}
+
+// Add 'getter' function for read
+Object.defineProperty(Vector.prototype, 'length', {
+	get: function() {
+		return Math.sqrt(this.x) + Math.sqrt(this.y)
+	}
+})
+
+// Add 'setter' function for write
+Object.defineProperty(Vector.prototype, 'setVector', {
+	set: function() {
+		return `Ignoring set values of ${setVector} for this vector`
+	}
+})
+
+
+////////////////////////
+// -- Another Cell -- //
+////////////////////////
+
+// Stretch cell object
+function stretchCell(inner, width, height) {
+	this.inner = inner,
+	this.width = width,
+	this.height = height
+}
+
+stretchCell.prototype.minWidth = function() {
+	return Math.max(this.width, this.inner.minWidth())
+}
+
+stretchCell.prototype.minHeight = function() {
+	return Math.max(this.height, this.inner.minHeight())
+}
+
+strechCell.prototype.draw = function(width, height) {
+	return this.inner.draw(width, height)
+}
+
+////////////////////////////////////
+// -- PROJECT: Electronic Life -- //
+////////////////////////////////////
+
+// Vector Object
+function Vector(x, y) {
+	this.x = x
+	this.y = y
+}
+
+// Plus method
+Vector.prototype.plus = function(otherVector) {
+	return new Vector(this.x + otherVector.x, this.y + otherVector.y)
+}
+
+// Grid Object
+function Grid(width, height) {
+	this.space = new Array(width * height)
+	this.width = width
+	this.height = height
+}
+
+// isInside method
+Grid.prototype.isInside = function(vector) {
+	return vector.x >= 0 && vector.x < this.width &&
+				 vector.y >= 0 && vector.y < this.height
+}
+
+// get & set methods
+Grid.prototype.get = function(vector) {
+	return this.space[vector.x + this.width * vector.y]
+}
+
+Grid.prototype.set = function(vector, value) {
+	return this.space[vector.x + this.width * vector.y] = value
+}
+
+// Directions object
+var directions = {
+	'n': 	new Vector(0, -1),
+	'ne':	new Vector(1, -1),
+	'e':	new Vector(1, 0),
+	'se':	new Vector(1, 1),
+	's':	new Vector(0, 1),
+	'sw':	new Vector(-1, 1),
+	'w':	new Vector(-1, 0),
+	'nw':	new Vector(-1, -1)
+}
+
+// Random element
+function randomElement(array) {
+	return array[Math.floor(Math.random() * array.length)]
+}
+
+var directionNames = "n ne e se s sw w nw".split(" ");
+
+// Critter object
+function BounceCritter() {
+	this.direction = randomElement(directionNames)
+}
+
+BouncingCritter.prototype.act = function(view) {
+	
 }
