@@ -928,3 +928,126 @@ function alphabetPosition(str) {
 	});
 	return result.join(' ');
 }
+
+// Sorted check
+function isSortedAndHow(array) {
+	let isAscending = (arr) => arr.every((value, i) => i === 0 || value >= arr[i - 1]);
+
+	let isDescending = (arr) => arr.every((value, i) => i === 0 || value <= arr[i - 1]);
+
+	if (isAscending(array)) {
+		return 'yes, ascending';		
+	} else if (isDescending(array)) {
+		return 'yes, descending';
+	} else {
+		return 'no';
+	}
+}
+
+// Same squared arrays
+function comp(array1, array2) {
+
+	if (!array1 || !array2) {
+		return false;
+	} else if (array1.length === 0 && array2.length === 0) {
+		return true;
+	}
+
+  let result = [];
+  let numCheck = 0;
+
+  for (let i = 0; i < array1.length; i++) {
+  	numCheck = Math.pow(array1[i], 2);
+
+  	if (array2.indexOf(numCheck) !== -1) {
+  		result.push(array1[i]);
+  	}
+  }
+
+  if (result.length === array1.length && result.length === array2.length) {
+  	return true;
+  } else {
+  	return false;
+  }
+};
+
+// Capitalise each word
+String.prototype.toJadenCase = function () {
+  return this.toLowerCase().split(' ').map(item => item[0].toUpperCase() + item.slice(1)).join(' ');
+};
+
+// Return sorted array as a string
+function liftoff(instructions) {
+	let result = '';
+	instructions.sort((a, b) => b - a)
+							.map(number => {
+								let item = number;
+								item.toString();
+								result += item + ' '
+							});
+	return result.substring(0, result.length - 1) + ' liftoff!'
+}
+
+// Sum of a sequence
+const sequenceSum = (begin, end, step) => {
+	if (begin > end) {
+		return 0;
+	}
+
+	let result = [begin];
+	let sumNum = begin;
+
+	for (let i = begin; i < end; i = i + step) {
+		result.push(sumNum += step);
+	}
+
+	if (result[result.length - 1] > end) {
+		result.pop();
+	}
+
+	return result.reduce((val, acc) => val + acc);
+};
+
+// Sum of a sequence (recursive)
+const sequenceSum = (begin, end, step) => {
+	if (begin > end) {
+		return 0;
+	}
+	return sequenceSum(begin + step, end, step);
+}
+
+// Deodorant Evaporator
+function evaporator(content, evap_per_day, threshold){ 
+	let result = 0;
+	let calculation = 0;
+
+	while (threshold >= 0) {
+		calculation = (evap_per_day / 100) * threshold;
+		threshold -= calcuation;
+		result++;
+	};
+}
+
+// Duplicate Count
+function duplicateCount(text) {
+	let resultCount = 0;
+	let objCount = {};
+	let testArr = text.toLowerCase().split('');
+
+	testArr.forEach(item => {
+		if (objCount.hasOwnProperty(item)) {
+			objCount[item]++;
+		} else {
+			objCount[item] = 1;
+		}
+	});
+
+	for (let key in objCount) {
+		if (objCount.hasOwnProperty(key)) {
+			if (objCount[key] >= 2) {
+				resultCount++;
+			}
+		}
+	}
+	return resultCount++;
+}
