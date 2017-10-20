@@ -1051,3 +1051,96 @@ function duplicateCount(text) {
 	}
 	return resultCount++;
 }
+
+// WeIrD StRiNg CaSe
+function toWeirdCase(string) {
+  return string.toLowerCase().split(' ').map(item => item.split('').map((letter, i) => i % 2 === 0 ? letter.toUpperCase() : letter).join('')).join(' ');
+}
+
+// Double Cola
+function whoIsNext(names, r) {
+	let item;
+	if (r === 1) {
+		return names[0];
+	} else if (r > 1) {
+		item = names[0];
+		names.splice(0, 1);
+		names.push(item, item);
+		return whoIsNext(names, r - 1)
+	}
+}
+
+// Double Cola
+function whoIsNext(names, r) {
+	let item;
+
+	while (r > 0) {
+		if (r === 1) {
+			return names[0];
+		} else {
+			r--;
+			item = names[0];
+			names.splice(0, 1);
+			names.push(item, item);
+		}
+	}
+	return result[0];
+}
+
+// Checking Groups
+function groupCheck(s) {
+	let testArr;
+
+	if (typeof(s) === 'string') {
+		testArr = s.split('');
+	}
+
+	let removeFirstItem = arr => arr.shift();
+	let removeLastItem = arr => arr.pop();
+
+	let oppositeItem = item => {
+		switch (item) {
+			case '(':
+				return ')';
+			case ')':
+				return '(';
+			case '{':
+				return '}';
+			case '}':
+				return '{';
+			case '[':
+				return ']';
+			case ']':
+				return '[';
+		}
+	}
+
+  if (testArr.length === 0) {
+  	return true;
+  } else if (oppositeItem(removeFirstItem(testArr)) !== removeLastItem(testArr)) {
+  	return false;
+  } else {
+  	testArr.splice(0, 1);
+  	testArr.splice(testArr.length - 1, 1);
+  	console.log(testArr)
+  	return groupCheck(testArr);
+  }
+}
+
+//First non-repeating letter
+function firstNonRepeatingLetter(s) {
+	let resultArr = s.split('');
+	let testArr = s.toLowerCase().split('');
+	let result = testArr.filter((letter, i) => testArr.indexOf(letter) === i && testArr.indexOf(letter, i + 1) === -1);
+
+  if (result.length === 0) {
+    return '';
+  } 
+
+  let upperCaseItem = result[0].toUpperCase();
+
+  if (resultArr.indexOf(upperCaseItem) !== -1) {
+  	return upperCaseItem;
+  }
+  return result[0];
+}
