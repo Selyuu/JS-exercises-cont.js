@@ -1144,3 +1144,97 @@ function firstNonRepeatingLetter(s) {
   }
   return result[0];
 }
+
+//////////////////////////
+// Catching car mileage //
+//////////////////////////
+
+function isInteresting(number, awesomePhrases) {
+
+	console.log(number, awesomePhrases)
+
+	// 0 check
+	let zeroCheck = arr => {
+		let result = [];
+		let returnResult = [];
+		arr.filter((item, i) => i > 0 ? result.push(item) : false);
+		result.filter((item) => item === 0 ? returnResult.push(item) : false);
+		return result.length === returnResult.length ? true : false;
+	}
+
+	// Same number
+	let sameNumberCheck = arr => {
+		return arr.every((curr, i, list) => i === 0 || curr === list[i - 1]);
+	}
+
+	// Sequential plus check
+	let seqPlusCheck = arr => {
+		return arr.every((curr, i, list) => {
+			if (((curr === 9) && (list[i + 1] === 0)) || ((curr === 0) && (list[i - 1] === 9))) {
+				return true;
+			} else if ((i === 0 && curr !== 9) || curr === (list[i - 1] + 1)) {
+				return true;
+			}
+			return false;
+		});
+	}
+
+	// Sequential minus check
+	let seqMinusCheck = arr => {
+		return arr.every((curr, i, list) => {
+			if (((curr === 1) && (list[i + 1] === 0)) || ((curr === 0) && (list[i - 1] === 1))) {
+				return true;
+			} else if (i === 0 && (curr === 1 && (list[i + 1] - 1 === curr))) {
+				return true;
+			} else if ((i === 0 && curr !== 1) || curr === (list[i - 1] - 1)) {
+				return true;
+			}
+			return false;
+		});
+	}
+
+	// Palindrome check
+	let palindromeCheck = arr => {
+		let el = arr;
+		let str = el.join('').toLowerCase();
+		let reverseStr = el.reverse().join('').toLowerCase();
+		return str === reverseStr ? true : false;
+	}
+
+	// Awesome array check
+	let awesomeArrCheck = (num, arr) => arr.indexOf(num) !== -1 ? true : false;
+
+	let allFunctionChecks = (num, awesomeArr) => {
+		let result = [];
+		let testArr = num.toString().split('').map(Number);
+
+		let resultPushFunc = (list, arrayValues, awesomeArr, num) => list.push(zeroCheck(arrayValues), sameNumberCheck(arrayValues), seqPlusCheck(arrayValues), seqMinusCheck(arrayValues), palindromeCheck(arrayValues), awesomeArrCheck(num, awesomeArr));
+		
+		resultPushFunc(result, testArr, awesomeArr, num);
+
+
+		if (result.indexOf(true) !== -1 && num > 99) {
+			return 2;
+		} else {
+			num++;
+			result = [];
+			testArr = num.toString().split('').map(Number);
+			resultPushFunc(result, testArr, awesomeArr, num);
+		}
+
+		if (result.indexOf(true) !== -1 && num > 99) {
+			return 1;
+		} else {
+			num++;
+			result = [];
+			testArr = num.toString().split('').map(Number);
+			resultPushFunc(result, testArr, awesomeArr, num);
+		}
+
+		if (result.indexOf(true) !== -1 && num > 99) {
+			return 1;
+		}
+		return 0;
+	}
+	return allFunctionChecks(number, awesomePhrases);
+}
