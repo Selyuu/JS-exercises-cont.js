@@ -1238,3 +1238,12 @@ function isInteresting(number, awesomePhrases) {
 	}
 	return allFunctionChecks(number, awesomePhrases);
 }
+
+// Moving zeroes to the end
+function moveZeros(arr) {
+	let testArr = arr;
+	let countZero = testArr.filter(item => item === 0);
+	let result = testArr.filter(item => item !== 0);
+
+	return result.concat(countZero);
+};
